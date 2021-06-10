@@ -20,7 +20,7 @@ public class embedBuilder {
             embedBuilder.addField(field,content.get(field),false);
         }
 
-        embedBuilder.setFooter("Created with love by Yoursole1#7254");
+        embedBuilder.setFooter("Created with \u2665 by Yoursole1#7254");
         embedBuilder.setColor(new Color(2871056));
         return embedBuilder.build();
     }
