@@ -1,4 +1,4 @@
-package utils;
+package net.hypixel.floppybot.utils;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -6,7 +6,6 @@ import com.google.gson.JsonParser;
 import net.hypixel.api.HypixelAPI;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.NoSuchElementException;
 import java.util.Scanner;

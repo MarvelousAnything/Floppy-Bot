@@ -1,4 +1,4 @@
-package utils;
+package net.hypixel.floppybot.utils;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;

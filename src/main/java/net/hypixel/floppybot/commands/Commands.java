@@ -1,14 +1,10 @@
-package commands;
+package net.hypixel.floppybot.commands;
 
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import utils.PlayerUtils;
-import utils.embedBuilder;
+import net.hypixel.floppybot.utils.embedBuilder;
 
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.Objects;
-import java.util.concurrent.ExecutionException;
 
 public class Commands extends ListenerAdapter {
 

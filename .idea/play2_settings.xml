@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Play2ProjectSettings">
+    <option name="SPACES_IN_ROUTES" value="5" />
+    <option name="EXCLUDE_SBT_TARGET" value="false" />
+    <option name="EXCLUDE_MAKE_BEFORE_RUN" value="false" />
+    <option name="ANNOTATE_ACTION_METHODS" value="false" />
+    <option name="ANNOTATE_VIEW_CALLS" value="false" />
+    <option name="ANNOTATE_RESULT_CALLS" value="false" />
+    <option name="COLORED_CONSOLE" value="false" />
+    <option name="SHOW_REFS_IN_CONSOLE" value="false" />
+  </component>
+</project>

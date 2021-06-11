@@ -1,7 +1,7 @@
-package main;
+package net.hypixel.floppybot;
 
-import commands.ApplyChatListener;
-import commands.Commands;
+import net.hypixel.floppybot.commands.ApplyChatListener;
+import net.hypixel.floppybot.commands.Commands;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -13,7 +13,7 @@ import javax.security.auth.login.LoginException;
 public class main {
     public static JDABuilder builder;
     public static void main(String[] args) throws LoginException {
-        String token = "TOKEN HERE";
+        String token = System.getenv("TOKEN") == null ? args[0] : System.getenv("TOKEN");
         builder = JDABuilder.createDefault(token);
         builder.disableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE);
         builder.setBulkDeleteSplittingEnabled(false);

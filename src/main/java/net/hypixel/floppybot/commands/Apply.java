@@ -1,10 +1,10 @@
-package commands;
+package net.hypixel.floppybot.commands;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
-import utils.embedBuilder;
+import net.hypixel.floppybot.utils.embedBuilder;
 
 import java.util.HashMap;
 import java.util.Objects;

@@ -1,13 +1,12 @@
-package commands;
+package net.hypixel.floppybot.commands;
 
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import utils.PlayerUtils;
-import utils.embedBuilder;
+import net.hypixel.floppybot.utils.PlayerUtils;
+import net.hypixel.floppybot.utils.embedBuilder;
 
 import java.io.IOException;
 import java.util.HashMap;

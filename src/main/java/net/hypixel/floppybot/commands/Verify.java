@@ -1,8 +1,8 @@
-package commands;
+package net.hypixel.floppybot.commands;
 
 import net.dv8tion.jda.api.entities.*;
-import utils.PlayerUtils;
-import utils.embedBuilder;
+import net.hypixel.floppybot.utils.PlayerUtils;
+import net.hypixel.floppybot.utils.embedBuilder;
 
 import java.io.IOException;
 import java.util.HashMap;
