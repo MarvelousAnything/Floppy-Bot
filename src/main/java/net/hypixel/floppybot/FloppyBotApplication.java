@@ -7,12 +7,16 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.Compression;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.security.auth.login.LoginException;
 
-public class main {
+@SpringBootApplication
+public class FloppyBotApplication {
     public static JDABuilder builder;
-    public static void main(String[] args) throws LoginException {
+
+    public static void main(String[] args) {
         String token = System.getenv("TOKEN") == null ? args[0] : System.getenv("TOKEN");
         builder = JDABuilder.createDefault(token);
         builder.disableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE);
@@ -23,5 +27,6 @@ public class main {
         builder.addEventListeners(new ApplyChatListener());
         builder.addEventListeners(new Commands());
         builder.build();
+        SpringApplication.run(FloppyBotApplication.class, args);
     }
 }
