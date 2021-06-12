@@ -1,7 +1,7 @@
 server:
   port: 0
 bot:
-  token: 'NzQ2NzU0NDQyMzU0ODg0NzM5.X0E7RQ.8Mu8EVV7USj_G9_NS3AkhF7bZR8'
+  token: ${FLOPPY_BOT_TOKEN:YOURTOKENHERE}
   embed:
     title: "-SP3CTR3 BOT-"
     description: "This is in BETA - DM Yoursole1#7254 with issues"
@@ -10,3 +10,6 @@ bot:
       url: "https://cdn.discordapp.com/attachments/826929655851384922/852204578064564254/a_3596d9dbe4464e2d1cb9265d8ceb3ccf.png"
     footer:
       text: "Created with \u2665 by Yoursole1#7254"
+logging:
+  level:
+    root: info

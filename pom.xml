@@ -13,7 +13,7 @@
     <artifactId>FloppyBot</artifactId>
     <version>3.0.0</version>
     <properties>
-        <java.version>15</java.version>
+        <java.version>14</java.version>
     </properties>
     <build>
         <plugins>
