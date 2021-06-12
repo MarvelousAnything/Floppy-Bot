@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Floppy-Bot.iml" filepath="$PROJECT_DIR$/.idea/Floppy-Bot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FloppyBot.iml" filepath="$PROJECT_DIR$/FloppyBot.iml" />
     </modules>
   </component>
 </project>

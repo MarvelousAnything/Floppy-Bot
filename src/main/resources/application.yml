@@ -1,5 +1,7 @@
+server:
+  port: 0
 bot:
-  token: 'NzQ2NzU0NDQyMzU0ODg0NzM5.X0E7RQ.chL3ZjKs7uWBs2TKi0b1VUoFROc'
+  token: 'NzQ2NzU0NDQyMzU0ODg0NzM5.X0E7RQ.8Mu8EVV7USj_G9_NS3AkhF7bZR8'
   embed:
     title: "-SP3CTR3 BOT-"
     description: "This is in BETA - DM Yoursole1#7254 with issues"

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.16.1" />
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="lpr28gxy" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>

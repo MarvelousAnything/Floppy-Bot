@@ -1,15 +1,21 @@
 package net.hypixel.floppybot.service;
 
-import feign.Param;
-import feign.RequestLine;
 import net.hypixel.floppybot.model.Player;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.UUID;
 
+@Service
+@FeignClient(name = "MOJANG-SERVICE", url = "https://api.mojang.com")
 public interface MojangService {
-    @RequestLine("GET /users/profiles/minecraft/{name}")
-    Player getPlayerByName(@Param("name") String name);
 
-    @RequestLine("GET /user/profiles/{uuid}/names")
-    List<Player> getPlayerByUUID(@Param("uuid") String uuid);
+    @GetMapping("/users/profiles/minecraft/{name}")
+    Player getPlayerByName(@PathVariable("name") String name);
+
+    @GetMapping("/user/profiles/{uuid}/names")
+    List<Player> getPlayerByUUID(@PathVariable("uuid") String uuid);
 }
