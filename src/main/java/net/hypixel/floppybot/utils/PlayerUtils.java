@@ -7,6 +7,7 @@ import net.hypixel.api.HypixelAPI;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.UUID;
@@ -55,7 +56,7 @@ public class PlayerUtils {
         String url = "https://api.mojang.com/users/profiles/minecraft/"+name;
         String UUIDJson = null;
         try{
-            UUIDJson = new Scanner(new URL(url).openStream(),"UTF-8").useDelimiter("\\A").next();
+            UUIDJson = new Scanner(new URL(url).openStream(), StandardCharsets.UTF_8).useDelimiter("\\A").next();
             JsonObject JsonFile = (JsonObject) new JsonParser().parse(UUIDJson);
             String uuid = JsonFile.get("id").toString();
             return uuid.replace("\"","");
@@ -75,7 +76,7 @@ public class PlayerUtils {
         String name = null;
         String url = "https://api.mojang.com/user/profiles/"+getUUID(ign)+"/names";
         String UUIDJson = null;
-        UUIDJson = new Scanner(new URL(url).openStream(),"UTF-8").useDelimiter("\\A").next();
+        UUIDJson = new Scanner(new URL(url).openStream(), StandardCharsets.UTF_8).useDelimiter("\\A").next();
         JsonArray JsonFile = (JsonArray) new JsonParser().parse(UUIDJson);
         name =JsonFile.get(JsonFile.size()-1).getAsJsonObject().get("name").toString();
         name = name.replaceAll("\"","");

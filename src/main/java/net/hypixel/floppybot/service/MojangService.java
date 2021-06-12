@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface MojangService {
     @RequestLine("GET /users/profiles/minecraft/{name}")
-    public Player getPlayerByName(@Param("name") String name);
+    Player getPlayerByName(@Param("name") String name);
 
     @RequestLine("GET /user/profiles/{uuid}/names")
-    public List<Player> getPlayerByUUID(@Param("uuid") String uuid);
+    List<Player> getPlayerByUUID(@Param("uuid") String uuid);
 }
