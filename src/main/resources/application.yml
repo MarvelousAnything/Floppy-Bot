@@ -1,5 +1,7 @@
 server:
   port: 0
+hypixel:
+  token: ${HYPIXEL_API_TOKEN:YOURTOKENHERE}
 bot:
   token: ${FLOPPY_BOT_TOKEN:YOURTOKENHERE}
   embed:
