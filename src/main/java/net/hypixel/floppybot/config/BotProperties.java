@@ -36,5 +36,5 @@ public class BotProperties {
         private Integer color;
     }
 
-    private  Embed embed;
+    private Embed embed;
 }
