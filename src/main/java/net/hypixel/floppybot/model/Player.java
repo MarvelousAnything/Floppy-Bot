@@ -1,20 +1,26 @@
 package net.hypixel.floppybot.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import net.hypixel.floppybot.utils.Utils;
+import net.hypixel.floppybot.dto.NameDTO;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Data
 public class Player {
-    String name;
+    private String name;
+    private List<String> names;
     private String id;
+    private DiscordTag discordTag;
 
-    Player(@JsonProperty String name) {
-        this(Utils.mojangService.getPlayerByName(name));
+    public void setNames(List<NameDTO> names) {
+        this.names = names.stream().map(NameDTO::getName).collect(Collectors.toList());
     }
 
-    Player(Player player) {
-        this.name = player.getName();
-        this.id = player.getId();
-    }
 }

@@ -2,15 +2,21 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Floppy-Bot" />
+        <module name="FloppyBot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Floppy-Bot" target="9" />
+      <module name="FloppyBot" target="14" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="FloppyBot" options="-parameters" />
+    </option>
   </component>
 </project>
