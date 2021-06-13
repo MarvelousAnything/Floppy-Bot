@@ -19,6 +19,15 @@ public class HypixelService {
 
     public DiscordTag getDiscordTag(String uuid) throws ExecutionException, InterruptedException {
         JsonObject player = hypixelAPI.getPlayerByUuid(uuid).get().getPlayer();
-        return new DiscordTag(player.get("socialMedia").getAsJsonObject().get("links").getAsJsonObject().get("DISCORD").getAsString());
+        if (player != null && player.has("socialMedia")) {
+            JsonObject socialMedia = player.get("socialMedia").getAsJsonObject();
+            if (socialMedia.has("links")) {
+                JsonObject links = socialMedia.get("links").getAsJsonObject();
+                if (links.has("DISCORD")) {
+                    return new DiscordTag(links.get("DISCORD").getAsString());
+                }
+            }
+        }
+        return new DiscordTag(null);
     }
 }

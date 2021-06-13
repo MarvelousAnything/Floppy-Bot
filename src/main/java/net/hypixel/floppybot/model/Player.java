@@ -14,9 +14,10 @@ import java.util.stream.Collectors;
 
 @Data
 public class Player {
+
+    private String id;
     private String name;
     private List<String> names;
-    private String id;
     private DiscordTag discordTag;
 
     public void setNames(List<NameDTO> names) {
