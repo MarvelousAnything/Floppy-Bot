@@ -1,7 +1,6 @@
 package net.hypixel.floppybot.command;
 
 import discord4j.core.object.entity.Message;
-import discord4j.core.object.entity.channel.MessageChannel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import net.hypixel.floppybot.event.MessageCreateListener;

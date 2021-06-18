@@ -3,10 +3,7 @@ package net.hypixel.floppybot.service;
 import com.google.gson.JsonObject;
 import lombok.AllArgsConstructor;
 import net.hypixel.api.HypixelAPI;
-import net.hypixel.floppybot.config.HypixelProperties;
 import net.hypixel.floppybot.model.DiscordTag;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ExecutionException;
@@ -20,9 +17,9 @@ public class HypixelService {
     public DiscordTag getDiscordTag(String uuid) throws ExecutionException, InterruptedException {
         JsonObject player = hypixelAPI.getPlayerByUuid(uuid).get().getPlayer();
         if (player != null && player.has("socialMedia")) {
-            JsonObject socialMedia = player.get("socialMedia").getAsJsonObject();
+            var socialMedia = player.get("socialMedia").getAsJsonObject();
             if (socialMedia.has("links")) {
-                JsonObject links = socialMedia.get("links").getAsJsonObject();
+                var links = socialMedia.get("links").getAsJsonObject();
                 if (links.has("DISCORD")) {
                     return new DiscordTag(links.get("DISCORD").getAsString());
                 }

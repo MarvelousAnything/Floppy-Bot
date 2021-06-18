@@ -4,22 +4,16 @@ import discord4j.core.GatewayDiscordClient;
 import discord4j.core.event.domain.Event;
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.MessageChannel;
-import discord4j.core.spec.EmbedCreateSpec;
-import discord4j.core.spec.MessageCreateSpec;
-import lombok.extern.slf4j.Slf4j;
 import net.hypixel.floppybot.embed.EmbedBuilder;
 import net.hypixel.floppybot.event.EventListener;
-import net.hypixel.floppybot.event.MessageCreateListener;
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.*;
-import org.springframework.beans.factory.BeanFactory;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
-import java.util.function.Consumer;
-import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 @Aspect
 @Component
@@ -43,7 +37,7 @@ public class CommandAspect {
         return input.replaceAll(command.prefix() + " ", "");
     }
 
-    public Mono<Message> createMessage(Command command, Function<String, String> function, String message, MessageChannel channel) {
+    public Mono<Message> createMessage(Command command, UnaryOperator<String> function, String message, MessageChannel channel) {
         if (command.hasEmbed()) {
             return channel.createEmbed(embedBuilder.addField("test", function.apply(parseCommand(command, message)), command.inline()).build());
         } else {
@@ -52,8 +46,8 @@ public class CommandAspect {
     }
 
     @AfterReturning(value = "@annotation(command)", returning = "function")
-    public void addToCommandRegistry(Command command, Function<String, String> function) {
-        CommandListener listener = new CommandListener(command.prefix(), message ->
+    public void addToCommandRegistry(Command command, UnaryOperator<String> function) {
+        var listener = new CommandListener(command.prefix(), message ->
                     Mono.just(message)
                     .flatMap(Message::getChannel)
                     .flatMap(channel -> createMessage(command, function, message.getContent(), channel)).then());

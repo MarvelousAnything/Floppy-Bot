@@ -19,12 +19,6 @@ import java.util.function.Function;
 @SuppressWarnings("SpringConfigurationProxyMethods")
 public class CommandConfiguration {
 
-    @Autowired
-    private PlayerMapper playerMapper;
-
-    @Autowired
-    private MojangService mojangService;
-
     @Bean(autowireCandidate = false)
     @Command(prefix = "!lower")
     public Function<String, String> lower() {
@@ -57,16 +51,17 @@ public class CommandConfiguration {
 
     @Bean
     @Command(prefix = "!getPlayer")
-    public Function<String, String> getPlayer() {
+    public Function<String, String> getPlayer(PlayerMapper playerMapper, MojangService mojangService) {
         return s -> {
             log.info("Getting player: " + s);
             try {
-                Player player = playerMapper.sourceToDestination(mojangService.getPlayerByName(s));
+                var player = playerMapper.sourceToDestination(mojangService.getPlayerByName(s));
                 log.info("Got Player");
                 return player.toString();
             } catch (ExecutionException | InterruptedException e) {
                 log.info("Failed to get player: " + s);
                 log.error(e.getMessage());
+                Thread.currentThread().interrupt();
             }
             return "Could not find player: " + s;
         };
